@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        var num1 = 10;
+        var str1 = "문자열";
+        var bool1 = true;
+        var arr1 = [1, 2, 3];
+        var obj1 = {key1: "value1", key2: "value2"};
+        var undefined1;
+        var null1 = null;
+
+        console.log(num1);
+        console.log(str1);
+        console.log(bool1);
+        console.log(arr1);
+        console.log(obj1);
+        console.log(undefined1);
+        console.log(null1);
+
+        num1 = "숫자형 데이터가 있던 곳에 문자열 넣기";
+        console.log(num1);
+
+        let num2 = 100;
+        const num3 = 1000;
+        let str2 = "두번째 문자열";
+        const str3 = "const를 사용한 문자열";
+        let bool2 = false;
+        const bool3 = false;
+        let arr2 = [1, 2, 3];
+        const arr3 = [1, 2, 3];
+        let obj2 = {"key1": 100, key2: true};
+        const obj3 = {key1: "값1", key2: "값2"};
+        let null2 = null;
+        const null3 = null;
+
+        console.log(num2);
+        console.log(num3);
+        console.log(str2);
+        console.log(str3);
+        console.log(bool2);
+        console.log(bool3);
+        console.log(arr2);
+        console.log(arr3);
+        console.log(obj2);
+        console.log(obj3);
+        console.log(null2);
+        console.log(null3);
+
+        let undefined2;
+        console.log(undefined2);
+
+        // 상수로 선언하고 데이터를 초기화하지 않아서 오류 발생
+        // const undefined3;
+        // console.log(undefined3);
+
+        // var : ES6 버전이 나오기 전까지 자바스크립트에서 변수를 선언 시 사용하던 키워드, 변수가 메모리 상에 살아있는 범위가 함수를 기준으로 함, 동일한 이름의 변수를 재정의 할 수 있음
+        // let : ES6 버전에서 새로 추가된 변수 선언 키워드, 변수가 메모리 상에 살아있는 범위가 코드 블럭을 기준으로 함, 동일한 이름의 변수를 재정의 할 수 없음
+        // const : ES6 버전에서 새로 추가된 상수 선언 키워드, 상수가 메모리 상에 살아있는 범위가 코드 블럭을 기준으로 함
+
+
+        function func1() {
+            var varValue1 = 10;
+            let letValue1 = 100;
+
+            if (true) {
+                var varValue2 = 20;
+                let letValue2 = 200;
+            }
+
+            console.log("변수 varValue1 : " + varValue1);
+            console.log("변수 letValue1 : " + letValue1);
+            console.log("변수 varValue2 : " + varValue2);
+            // console.log("변수 letValue2 : " + letValue2);
+        }
+
+        var varValue3 = 30;
+        let letValue3 = 300;
+
+        varValue3 = 40;
+        letValue3 = 400;
+
+        // var 를 통해 생성한 변수는 재정의가 가능함
+        var varValue3 = 3000;
+        // let 을 통해 생성한 변수는 재정의가 불가능함
+        // let letValue3 = 40000;
+
+        func1();
+
+        // 함수 내부의 변수를 함수 외부에서 접근할 수 없음
+        // console.log(varValue1);
+        // console.log(letValue1);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
