@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- html 파일에 javascript를 포함해서 사용하는 방식 -->
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var btn = document.getElementById("btn-click02");
+            btn.addEventListener("click", function() {
+                alert("두번째 버튼 클릭했습니다.");
+            })
+        });
+        // var btn3 = document.getElementById("btn-click03")
+        // btn3.onclick = function() {
+        //     alert("세번째 버튼을 클릭했습니다.");
+        // }
+    </script>
+</head>
+<body>
+    <!-- inline 방식 (React에서 많이 사용) -->
+    <button onclick="alert('첫번째 버튼 클릭했습니다.')">클릭하세요</button>
+    <button id="btn-click02">클릭하세요</button>
+    <button id ="btn-click03">3번째 버튼 클릭하세요</button>
+    <button id ="btn-click04">4번째 버튼 클릭하세요</button>
+
+    <script>
+        var btn3 = document.getElementById("btn-click03")
+        btn3.onclick = function() {
+            alert("세번째 버튼을 클릭했습니다.");
+        }
+    </script>
+    <script src="study01.js"></script>
+</body>
+</html>
