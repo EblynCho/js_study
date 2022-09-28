@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var btnalert = document.querySelector("#btn-click01");
+            var btnconfirm = document.querySelector("#btn-click02");
+            var btnprompt = document.querySelector("#btn-click03");
+            var btnwrite = document.querySelector("#btn-click04");
+            var btnlog = document.querySelector("#btn-click05");
+
+            btnalert.addEventListener("click", function() {
+                alert("alert()를 사용합니다.");
+            });
+
+            btnconfirm.addEventListener("click", function() {
+                var confirmValue = confirm("confirm을 사용합니다.");
+                alert(confirmValue);
+            });
+
+            btnprompt.addEventListener("click", function() {
+                var promptValue = prompt("prompt를 사용합니다.", "이것은 기본값");
+                alert(promptValue);
+            });
+
+            btnwrite.addEventListener("click", function() {
+                document.write("<h1>document.write()를 사용합니다.</h1>");
+            });
+
+            btnlog.addEventListener("click", function() {
+                console.log("console.log()를 사용합니다.");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn-click01">alert 출력</button>
+    <button id="btn-click02">confirm 출력</button>
+    <button id="btn-click03">prompt 출력</button>
+    <button id="btn-click04">write 사용</button>
+    <button id="btn-click05">console.log 사용</button>
+</body>
+</html>
