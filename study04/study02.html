@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+<!-- CDN 방식을 사용한 jquery 로딩 -->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+<!-- 내 컴퓨터에 있는 jquery 파일을 로딩 -->
+  <script src="./js/jquery-3.6.1.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+//  jquery : javascript를 쉽게 사용할 수 있도록 하기 위해 개발된 라이브러리
+//  웹 브라우저의 파편화를 해결하기 위해서 사용함
+
+//  jquery 문법 : jquery를 사용한다는 의미로 $(), $jQuery() 형태로 사용
+//  $ 기호를 사용하여 jquery 를 웹 상에서 사용함
+//  사용법 :
+//  1. jquery 라이브러리를 웹 페이지에 로딩
+//    1.1 파일을 다울로드하여 내 사이트에서 직접 로딩
+//    1.2 CDN 을 통해서 jquery 파일을 로딩
+//  2. $(css선택자).기능1().기능2(). ... // 기능1, 기능2 -> chaining
+
+  // html 태그 선택 : $(css 선택자) 형태로 사용, 태그명/id/class 등 css에서 사용되는 모든 css 선택자가 사용 가능함
+  //
+
+  // ready : jquery의 이벤트로 해당 페이지의 html 코드가 모두 로딩된 후 동작하는 이벤트
+  // 순수 자바스크립트의 addEventListener('DOMContentLoaded', function() {}) 와 동일한 이벤트
+  $(document).ready(function () {
+    $("#btn01").on('click', function () {
+      alert('클릭 이벤트 발생');
+    });
+    $("ul li:last").on('click', function () {
+      alert('li 태그 클릭 이벤트');
+    });
+
+
+    // hide() : 지정한 태그를 숨김, css의 display:none 과 같은 효과
+    // show() : 지정한 태그를 숨김 해제
+    // toggle() : 지정한 태그를 숨김/숨김 해제 하는 함수
+    $("#div02-btn01").on('click', function () {
+      $('#div02-p1').hide();
+    });
+
+    $('#div02-btn02').on('click', function () {
+      $('#div02-p1').show();
+    });
+
+    $('#div02-btn03').on('click', function () {
+      $('#div02-p1').toggle();
+    });
+
+  //  fadeIn() : 숨겨져 있는 태그를 화면에 점진적으로 보이도록 출력, 시간 설정이 가능함
+  //  사용법 :
+    //  태그.fadeIn()
+    //  태그.fadeIn(slow|fast)
+    //  태그.fadeIn(시간) : 시간은 1/1000초로 입력
+  //  fadeOut() : 태그를 화면에서 점진적으로 숨김, 시간 설정이 가능함
+  //  사용법 :
+    //  태그.fadeOut()
+    //  태그.fadeOut(slow|fast)
+    //  태그.fadeOut(시간) : 시간은 1/1000초로 입력
+  //  fadeToggle() : 태그를 화면에서 점진적으로 숨기거나 보이게 함, 시간 설정이 가능함
+  //  사용법 :
+    //  태그.fadeToggle()
+    //  태그.fadeToggle(slow|fast)
+    //  태그.fadeToggle(시간) : 시간은 1/1000초로 입력
+  //  fadeTo() : 태그를 화면에서 지정된 투명도로 보이게 함, 시간 설정이 가능함
+  //  사용법 :
+    //  태그.fadeTo(slow|fast)
+    //  태그.fadeTo(시간) : 시간은 1/1000초로 입력
+
+    // fadeIn(), fadeOut(), fadeToggle(), fadeTo() 의 마지막 매개변수로 콜백함수를 사용 시 해당 효과가 끝난 후 콜백함수의 내용이 실행됨
+
+    $('#div03-btn01').on('click', function () {
+      $('#div03-sub1').fadeIn();
+      $('#div03-sub2').fadeIn('slow');
+      $('#div03-sub3').fadeIn('fast');
+      $('#div03-sub4').fadeIn(3000);
+    });
+
+    $('#div03-btn02').on('click', function () {
+      $('#div03-sub1').fadeOut();
+      $('#div03-sub2').fadeOut('slow');
+      $('#div03-sub3').fadeOut('fast');
+      $('#div03-sub4').fadeOut(3000);
+    });
+
+    $('#div03-btn03').on('click', function () {
+      $('#div03-sub1').fadeToggle();
+      $('#div03-sub2').fadeToggle('slow');
+      $('#div03-sub3').fadeToggle('fast');
+      $('#div03-sub4').fadeToggle(3000);
+    });
+
+    $('#div03-btn04').on('click', function () {
+      $('#div03-sub2').fadeTo('slow', 0.5);
+      $('#div03-sub3').fadeTo('fast', 0.5);
+      $('#div03-sub4').fadeTo(3000, 0.5);
+    });
+
+    $('#div03-btn05').on('click', function () {
+      $('#div03-sub1').fadeToggle(function () {
+        alert("fade toggle 이 동작했습니다.");
+      });
+    })
+
+  //  slideDown() : 특정 영역을 슬라이드 시켜 영역을 보여줌, 시간 설정 가능
+  //  사용법 :
+    //  태그.slideDown()
+    //  태그.slideDown(slow|fast)
+    //  태그.slideDown(시간) : 시간은 1/1000초로 계산 됨
+  //  slideUp() : 특정 영역을 슬라이드 시켜 화면에 보이는 영역을 숨김, 시간 설정 가능
+  //   사용법 :
+    //  태그.slideUp()
+    //  태그.slideUp(slow|fast)
+    //  태그.slideUp(시간) : 시간은 1/1000초로 계산 됨
+  //  slideToggle() : 특정 영역을 슬라이드 시켜 특정 영역을 숨기거나 보여줄 수 있음, 시간 설정 가능
+  //   사용법 :
+    //  태그.slideToggle()
+    //  태그.slideToggle(slow|fast)
+    //  태그.slideToggle(시간) : 시간은 1/1000초로 계산 됨
+  //  slideDown(), slideUp(), slideToggle() 의 마지막 매개변수로 콜백 함수를 사용할 수 있음
+
+    $('#div04-btn01').on('click', function () {
+      $('#div04-sub').slideDown();
+    });
+
+    $('#div04-btn02').on('click', function () {
+      $('#div04-sub').slideUp('slow');
+    });
+
+    $('#div04-btn03').on('click', function () {
+      $('#div04-sub').slideToggle(3000);
+    });
+
+    $('#div04-btn04').on('click', function () {
+      $('#div04-sub').slideToggle('fast', function () {
+        alert('slide에서 콜백 함수 사용하기');
+      });
+    });
+
+  //  animate() : 지정한 태그에 애니메이션 효과를 적용함
+  //  적용 속성에는 css의 속성을 사용함
+  //  사용법 :
+    //  태그.animate({적용 속성}, 속도, 콜백함수)
+    $('#div05-btn01').on('click', function () {
+      $('#div05-sub').animate({left: '250px'}, 'fast');
+    });
+
+    $('#div05-btn02').on('click', function () {
+      $('#div05-sub').animate({
+        left: '250px',
+        opacity: '0.3',
+        height: '250px',
+        width: '250px'
+      }, 'fast');
+    });
+
+    $('#div05-btn03').on('click', function () {
+      $('#div05-sub').animate({
+        left: '+=50px',
+        height: '+=50px',
+        width: '+=50px'
+      }, 'fast');
+    });
+
+    $('#div05-btn04').on('click', function () {
+      $('#div05-sub').animate({height: '300px', opacity: '0.3'}, 'slow');
+      $('#div05-sub').animate({width: '300px', opacity: '0.7'}, 'slow');
+      $('#div05-sub').animate({height: '100px', opacity: '0.3'}, 'slow');
+      $('#div05-sub').animate({width: '100px', opacity: '0.7'}, 'slow');
+    });
+
+    $('#div05-btn00').on('click', function () {
+      $('#div05-sub').animate({
+        left: '0px',
+        opacity: '1.0',
+        height: '150px',
+        width: '150px'
+      });
+    });
+
+
+  //  stop(stopAll, goToEnd) : 애니메이션 동작 중 해당 애니메이션을 중지 시키는 명령,
+    //  stopAll 은 애니메이션 큐가 여러 개 있을 경우 애니메이션 큐도 모두 중지할 것인지 여부 (기본값 false), 연결된 애니메이션 종료 여부
+    //  goToEnd 은 애니메이션 중지 시 그 자리에서 멈출 것인지 애니메이션의 끝으로 이동할 것인지 여부 (기본값 false)
+  //  사용법 :
+    //  태그.stop()
+    //  태그.stop(true, true);
+
+    $('#div06-btn00').on('click', function () {
+      $('#div06-sub').animate({left: '500px'}, 3000);
+      $('#div06-sub').animate({top: '500px'}, 3000);
+      $('#div06-sub').animate({left: '0px'}, 3000);
+      $('#div06-sub').animate({top: '0px'}, 3000);
+    });
+
+    $('#div06-btn01').on('click', function () {
+      $('#div06-sub').stop();
+    });
+
+    $('#div06-btn02').on('click', function () {
+      $('#div06-sub').stop(true, false);
+    });
+
+    $('#div06-btn03').on('click', function () {
+      $('#div06-sub').stop(false, true); // 연결된 애니메이션은 멈추지 않고 애니메이션의 끝으로 이동
+    });
+
+    $('#div06-btn04').on('click', function () {
+      $('#div06-sub').stop(true, true);
+    });
+
+
+  //  체이닝 : 제이쿼리 함수 실행 시 여러 가지 함수를 동시에 입력하는 방식
+  //  사용법 :
+    //  태그.함수1().함수2().함수3(). ...
+
+    $('#div06-btn').on('click', function () {
+      $('#div06-sub').animate({left: '500px'}, 'fast').animate({top: '500px'}, 'fast').animate({left: '0px'}, 'fast').animate({top: '0px'}, 'fast');
+    });
+  });
+  </script>
+
+  <style>
+    #div03 .box, #div05 .box, #div06 .box {
+      width: 150px;
+      height: 150px;
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .red { background-color: red; }
+    .green { background-color: green; }
+    .blue { background-color: blue; }
+    .purple { background-color: purple; }
+
+    #div04 .panel {
+      height: 200px;
+      border: 1px solid black;
+      background-color: darkslategrey;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="btn btn-primary" id="btn01">jquery 클릭 이벤트</div>
+    <ul>
+      <li>아메리카노</li>
+      <li>카페라떼</li>
+      <li>에스프레소</li>
+    </ul>
+
+    <br><hr><br>
+
+    <div id="div02">
+      <p id="div02-p1">이 부분은 아래의 버튼을 클릭 시 숨겨지는 부분입니다.</p>
+      <button class="btn btn-primary" id="div02-btn01">hide</button>
+      <button class="btn btn-primary" id="div02-btn02">show</button>
+      <button class="btn btn-primary" id="div02-btn03">toggle</button>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div03">
+      <div>
+        <button class="btn btn-primary" id="div03-btn01">fadeIn</button>
+        <button class="btn btn-success" id="div03-btn02">fadeOut</button>
+        <button class="btn btn-info" id="div03-btn03">fadeToggle</button>
+        <button class="btn btn-warning" id="div03-btn04">fadeTo</button>
+        <button class="btn btn-secondary" id="div03-btn05">fade 콜백함수 실행</button>
+      </div>
+      <div class="d-flex">
+        <div class="box red" id="div03-sub1"></div>
+        <div class="box green" id="div03-sub2"></div>
+        <div class="box blue" id="div03-sub3"></div>
+        <div class="box purple" id="div03-sub4"></div>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div04">
+      <div>
+        <button class="btn btn-primary" id="div04-btn01">slide down</button>
+        <button class="btn btn-success" id="div04-btn02">slide up</button>
+        <button class="btn btn-info" id="div04-btn03">slide toggle</button>
+        <button class="btn btn-warning" id="div04-btn04">slide callback</button>
+      </div>
+      <div class="panel" id="div04-sub">
+        <p class="d-flex justify-content-center">버튼을 클릭 시 슬라이드 효과로 숨기거나 보여지게 되는 영역</p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div05">
+      <div>
+        <button class="btn btn-primary" id="div05-btn01">한가지 속성만 변경</button>
+        <button class="btn btn-success" id="div05-btn02">여러가지 속성 동시에 적용</button>
+        <button class="btn btn-warning" id="div05-btn03">상대값 사용</button>
+        <button class="btn btn-info" id="div05-btn04">한번에 여러가지 속성을 차례대로 적용</button>
+        <button class="btn" id="div05-btn00">원본으로</button>
+      </div>
+      <div style="position: relative; height: 300px">
+        <div class="box blue" id="div05-sub" style="position: absolute"></div>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div06">
+      <div>
+        <button class="btn btn-secondary" id="div06-btn">애니메이션 시작1</button>
+        <button class="btn btn-secondary" id="div06-btn00">애니메이션 시작2</button>
+        <button class="btn btn-primary" id="div06-btn01">stop() stop(false, false)</button>
+        <button class="btn btn-primary" id="div06-btn02">stop(true, false)</button>
+        <button class="btn btn-primary" id="div06-btn03">stop(false, true)</button>
+        <button class="btn btn-primary" id="div06-btn04">stop(true, true)</button>
+      </div>
+
+      <div style="position: relative; width: 500px; height: 500px">
+        <div class="box green" id="div06-sub" style="position: absolute"></div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
