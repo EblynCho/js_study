@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+  <script src="./js/jquery-3.6.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+  $(document).ready(function () {
+
+
+//  jquery를 이용하여 html 태그 추가
+//  append() : 선택한 html 태그의 끝에 태그를 추가
+//  사용법 :
+  //  태그.append(추가할 내용)
+    let appendCount = 0;
+    let prependCount = 0;
+
+    $("#div01-btn01").on("click", function () {
+      $("#div01-p").append(` <b>append()로 추가된 내용${appendCount}</b> `);
+      $("#div01-ol1").append(`<li>append()로 추가된 리스트${appendCount}</li>`);
+      appendCount++;
+    });
+
+//  prepend() : 선택한 html 태그의 앞에 태그를 추가
+//  사용법 :
+  //  태그.prepend(추가할 내용)
+    $("#div01-btn02").on("click", function () {
+      $("#div01-p").prepend(` <b>prepend()로 추가된 내용${prependCount}</b> `);
+      $("#div01-ol1").prepend(`<li>prepend()로 추가된 리스트${prependCount}</li>`);
+      prependCount++;
+    });
+
+//  after() : 선택한 html 태그의 끝에 태그를 추가
+//  사용법 :
+  //  태그.after(추가할 내용)
+    let afterCount = 0;
+    let beforeCount = 0;
+    $("#div01-btn03").on("click", function () {
+      $("#div01-p2").after(` <b>after() 로 추가된 내용${afterCount}</b> `);
+      $("#div01-ol2").after(`<li>after() 로 추가된 리스트${afterCount}</li>`);
+      afterCount++;
+    });
+
+//  before() : 선택한 html 태그의 앞에 태그를 추가
+//  사용법 :
+  //  태그.before(추가할 내용)
+    $("#div01-btn04").on("click", function () {
+      $("#div01-p2").before(` <b>before() 로 추가된 내용${beforeCount}</b> `);
+      $("#div01-ol2").before(`<li>before() 로 추가된 리스트${beforeCount}</li>`);
+      beforeCount++;
+    });
+
+
+    $('#div02-btn01').on('click', function () {
+      let txt1 = '<p>추가된 p태그</p>';
+      let txt2 = $('<p></p>').text('추가된 p태그');
+      let txt3 = document.createElement('p');
+      txt3.innerHTML = '추가된 p태그';
+
+      $('#div02-sub1').append(txt1, txt2, txt3);
+    });
+
+    $('#div02-btn02').on('click', function () {
+      let txt1 = '<p>추가된 p태그</p>';
+      let txt2 = $('<p></p>').text('추가된 p태그');
+      let txt3 = document.createElement('p');
+      txt3.innerHTML = '추가된 p태그';
+
+      $('#div02-sub2').after(txt1, txt2, txt3);
+    });
+
+
+  //  remove() : 지정한 html 태그를 삭제, css 선택자를 사용 가능
+  //  사용법 :
+    //  태그.remove()
+    //  태그.remove(css선택자)
+    $('#div03-btn01').on('click', function () {
+      $('#div03-sub').remove();
+    });
+  //  empty() : 지정한 html 태그의 자식 태그를 삭제
+  //  사옹법 :
+    //  태그.empty()
+    $('#div03-btn02').on('click', function () {
+      $('#div03-sub').empty();
+    });
+
+  });
+  </script>
+
+</head>
+<body>
+  <div class="container">
+    <br>
+    <div id="div01">
+      <button id="div01-btn01" class="btn btn-primary">append()로 텍스트, 리스트 추가</button>
+      <button id="div01-btn02" class="btn btn-primary">prepend()로 텍스트, 리스트 추가</button>
+      <button id="div01-btn03" class="btn btn-success">after()로 텍스트 추가</button>
+      <button id="div01-btn04" class="btn btn-success">before()로 리스트 추가</button>
+
+      <br><hr><br>
+      <p id="div01-p">원본 글자</p>
+      <ol id="div01-ol1">
+        <li>리스트 아이템1</li>
+        <li>리스트 아이템2</li>
+        <li>리스트 아이템3</li>
+      </ol>
+      <br><hr><br>
+      <p id="div01-p2">원본 글자</p>
+      <ol id="div01-ol2">
+        <li>리스트 아이템1</li>
+        <li>리스트 아이템2</li>
+        <li>리스트 아이템3</li>
+      </ol>
+
+    </div>
+
+    <br><hr><br>
+
+    <div id="div02">
+      <button id="div02-btn01" class="btn btn-primary">append/prepend 를 이용하여 html 태그 추가</button>
+      <button id="div02-btn02" class="btn btn-primary">after/before 를 이용하여 html태그 추가</button>
+
+      <div id="div02-sub1" class="border m-2"></div>
+      <div id="div02-sub2" class="border m-2"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div03">
+      <button id="div03-btn01" class="btn btn-danger">remove()로 삭제</button>
+      <button id="div03-btn02" class="btn btn-warning">empty()로 비우기</button>
+
+      <br><br>
+
+
+      <div id="div03-sub" class="border m-3 p-3" style="width: 300px; height: 300px; background-color: darkseagreen">
+        <p>버튼 클릭 시 삭제 될 p 태그 1</p>
+        <p>버튼 클릭 시 삭제 될 p 태그 2</p>
+        <img src="images/pngwing.com.png" class="h-100">
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
