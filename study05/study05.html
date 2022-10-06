@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+  <script src="./js/jquery-3.6.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+    //  jquery의 태그 탐색 명령어
+    //  부모 태그(조상 태그) 찾기
+    //  parent() : 지정한 html 태그의 직계 부모 태그를 선택
+    //  사용법 :
+      //  태그.parent()
+      $('#div01 span').parent().css({'color': 'red', 'border': '2px solid red'});
+
+    //  parents() : 지정한 html 태그의 조상 태그를 모두 선택
+    //  사용법 :
+      //  태그.parents()
+      //  태그.parents(지정한 태그) : 조상 중 지정한 태그만 선택
+      $('#div02 .ance span').parents().css({'color': 'red', 'border': '2px solid red'});
+      $('#div02 .ance2 span').parents('ul').css({'color': 'red', 'border': '2px solid red'});
+
+    //  parentsUntil() : 지정한 html 태그부터 지정한 태그까지의 조상 태그를 모두 선택
+    //  사용법 :
+      //  태그.parentsUntil(지정한 상위 태그)
+      $('#div03 .ance span').parentsUntil('div').css({'color': 'red', 'border': '2px solid red'});
+
+    //  자손 태그 찾기
+    //  children() : 지정한 html 태그의 모든 직계 자식 태그를 선택
+    //  사용법 :
+      //  태그.children()
+      //  태그.children(지정한 태그) : 직계 자식 태그 중 지정한 태그를 가져옴
+      $('#div04 div').children().css({'color': 'red', 'border': '2px solid red'});
+
+    //  find() : 지정한 html 태그부터 마지막까지의 모든 자손 태그를 선택
+    //  사용법 :
+      //  태그.find(지정한 태그) : 지정한 html 태그의 자손 태그 중 지정한 태그만 선택
+      //  태그.find("*") : 지정한 html 태그의 모든 자손
+      $('#div05 div').find('span').css({'color': 'red', 'border': '2px solid red'});
+
+    //  형제 태그 찾기
+    //  siblings() : 지정한 html 태그의 모든 형제 태그를 선택
+    //  사용법 :
+      //  태그.siblings() : 모든 형제 태그 선택
+      //  태그.siblings(태그) : 모든 형제 태그 중 지정한 태그만 선택
+      $('#div06 .siblings h2').siblings().css({'color': 'red', 'border': '2px solid red'});
+      $('#div06 .siblings2 h2').siblings('p').css({'color': 'red', 'border': '2px solid red'});
+
+    //  next() : 지정한 html 태그의 다음 형제 태그를 선택
+    //  사용법 :
+      //  태그.next()
+      $('#div07 .next h2').next().css({'color': 'red', 'border': '2px solid red'});
+
+    //  nextAll() : 지정한 html 태그의 다음 형제 태그부터 마지막까지 모두 선택
+    //  사용법 :
+      //  태그.nextAll()
+      $('#div07 .next2 h2').nextAll().css({'color': 'red', 'border': '2px solid red'});
+
+    //  nextUntil() : 지정한 html 태그의 다음 형제 태그부터 지정한 태그까지 모두 선택
+    //  사용법 :
+      //  태그.nextUntil(태그) : 지정한 태그부터 선택한 태그까지의 태그를 모두 선택
+      $('#div07 .next3 span').nextUntil('p').css({'color': 'red', 'border': '2px solid red'});
+
+    //  prev() : 지정한 html 태그의 이전 형제 태그를 선택
+    //  prevAll() : 지정한 html 태그의 이전 형제 태그부터 처음까지 모두 선택
+    //  prevUntil() : 지정한 html 태그의 이전 형제 태그부터 지정한 태그까지 모두 선택
+
+    //  필터링
+    });
+  </script>
+  <style>
+    .ance * {
+      display: block;
+      border: 2px solid gray;
+      color: gray;
+      padding: 5px;
+      margin: 15px;
+    }
+
+    .ance2 * {
+      display: block;
+      border: 2px solid gray;
+      color: gray;
+      padding: 5px;
+      margin: 15px;
+    }
+
+    .deance * {
+      display: block;
+      border: 2px solid gray;
+      color: gray;
+      padding: 5px;
+      margin: 15px;
+    }
+
+    .siblings *, .siblings2 *, .next *, .next2 *, .next3 * {
+      display: block;
+      border: 2px solid gray;
+      color: gray;
+      padding: 5px;
+      margin: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container p-4">
+    <div id="div01">
+      <h3>parent() 사용</h3>
+      <div class="ance">
+        <div style="width: 500px;">div (증조부모 태그)
+          <ul>ul (조부모 태그)
+            <li>li (부모 태그)
+              <span>span</span>
+            </li>
+          </ul>
+        </div>
+
+        <div style="width: 500px;">div (조부모 태그)
+          <p>p (부모 태그)
+            <span>span</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div02">
+      <h3>parents() 사용</h3>
+      <div class="ance">
+        <div style="width: 500px;">div (증조부모 태그)
+          <ul>ul (조부모 태그)
+            <li>li (부모 태그)
+              <span>span</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ance2">
+        <div style="width: 500px;">div (증조부모 태그)
+          <ul>ul (조부모 태그)
+            <li>li (부모 태그)
+              <span>span</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div03">
+      <h3>parentsUntil() 사용</h3>
+      <div class="ance">div (고조부모 태그)
+        <div>div (증조부모 태그)
+          <ul>ul (조부모 태그)
+            <li>li (부모 태그)
+              <span>span</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div04">
+      <h3>children() 사용</h3>
+      <div class="deance" style="width: 500px;">div (선택한 태그)
+        <p>p (직계 자식 태그)
+          <span>span (손자 태그)</span>
+        </p>
+        <p>p (직계 자식 태그2)
+          <span>span (손자 태그2)</span>
+        </p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div05">
+      <h3>find() 사용</h3>
+      <div class="deance" style="width: 500px;">div (선택한 태그)
+        <p>p (직계 자식 태그)
+          <span>span (손자 태그)</span>
+        </p>
+        <p>p (직계 자식 태그2)
+          <span>span (손자 태그2)</span>
+        </p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div06">
+      <h3>siblings() 사용</h3>
+      <div class="siblings">
+        <div>div (부모 태그)
+          <p>p (형제 태그)</p>
+          <span>span (형제 태그)</span>
+          <h2>h2 (형제 태그)</h2>
+          <h3>h3 (형제 태그)</h3>
+          <p>p (형제 태그)</p>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="siblings2">
+        <div>div (부모 태그)
+          <p>p (형제 태그)</p>
+          <span>span (형제 태그)</span>
+          <h2>h2 (형제 태그)</h2>
+          <h3>h3 (형제 태그)</h3>
+          <p>p (형제 태그)</p>
+        </div>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div07">
+      <h3>next() 사용</h3>
+      <div class="next">
+        <div>div (부모 태그)
+          <p>p (형제 태그)</p>
+          <span>span (형제 태그)</span>
+          <h2>h2 (형제 태그)</h2>
+          <h3>h3 (형제 태그)</h3>
+          <p>p (형제 태그)</p>
+        </div>
+      </div>
+
+      <br>
+
+      <h3>nextAll() 사용</h3>
+      <div class="next2">
+        <div>div (부모 태그)
+          <p>p (형제 태그)</p>
+          <span>span (형제 태그)</span>
+          <h2>h2 (형제 태그)</h2>
+          <h3>h3 (형제 태그)</h3>
+          <p>p (형제 태그)</p>
+        </div>
+      </div>
+
+      <br>
+
+      <h3>nextUntil() 사용</h3>
+      <div class="next3">
+        <div>div (부모 태그)
+          <p>p (형제 태그)</p>
+          <span>span (형제 태그)</span>
+          <h2>h2 (형제 태그)</h2>
+          <h3>h3 (형제 태그)</h3>
+          <p>p (형제 태그)</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
