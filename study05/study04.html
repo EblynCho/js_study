@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+  <script src="./js/jquery-3.6.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+    //  html 태그의 크기를 가져오는 명령어
+    //  width() : 지정한 html 태그의 너비를 설정하거나 가져옴
+    //  사용법 :
+      //  태그.width() : 너비 가져오기
+      //  태그.width(크기) : 너비 설정하기
+    //  height() : 지정한 html 태그의 높이를 설정하거나 가져옴
+    //  사용법 :
+      //  태그.height() : 높이 가져오기
+      //  태그.height(크기) : 높이 설정하기
+      $('#div01-btn01').on('click', function () {
+        let txt = "";
+        txt += `width : ${$('#div01-sub').width()}<br>`;
+        txt += `height : ${$('#div01-sub').height()}`;
+
+        $('#div01-sub').html(txt);
+      });
+
+    //  innerWidth() : 지정한 html 태그의 padding 까지의 너비를 가져옴
+    //  사용법 :
+      //  태그.innerWidth()
+    //  innerHeight() : 지정한 html 태그의 padding 까지의 높이를 가져옴
+    //  사용법 :
+      //  태그.innerHeight()
+      $('#div01-btn02').on('click', function () {
+        let txt = "";
+        txt += `width : ${$('#div01-sub').width()}<br>`;
+        txt += `height : ${$('#div01-sub').height()}<br>`;
+        txt += `innerWidth : ${$('#div01-sub').innerWidth()}<br>`;
+        txt += `innerHeight : ${$('#div01-sub').innerHeight()}<br>`;
+
+        $('#div01-sub').html(txt);
+      });
+
+    //  outerWidth() : 지정한 html 태그의 border 까지의 너비를 가져옴
+      //  사용법 :
+      //  태그.outerWidth()
+    //  outerHeight() : 지정한 html 태그의 border 까지의 높이를 가져옴
+      //  사용법 :
+      //  태그.outerHeight()
+      $('#div01-btn03').on('click', function () {
+        let txt = "";
+        txt += `width : ${$('#div01-sub').width()}<br>`;
+        txt += `height : ${$('#div01-sub').height()}<br>`;
+        txt += `innerWidth : ${$('#div01-sub').innerWidth()}<br>`;
+        txt += `innerHeight : ${$('#div01-sub').innerHeight()}<br>`;
+        txt += `outerWidth : ${$('#div01-sub').outerWidth()}<br>`;
+        txt += `outerHeight : ${$('#div01-sub').outerHeight()}<br>`;
+
+        $('#div01-sub').html(txt);
+      });
+
+    //  outerWidth(true) : 지정한 html 태그의 margin 까지의 너비를 가져옴
+      //  사용법 :
+      //  태그.outerWidth(true)
+    //  outerHeight(true) : 지정한 html 태그의 margin 까지의 높이를 가져옴
+      //  사용법 :
+      //  태그.outerHeight(true)
+      $('#div01-btn04').on('click', function () {
+        let txt = "";
+        txt += `width : ${$('#div01-sub').width()}<br>`;
+        txt += `height : ${$('#div01-sub').height()}<br>`;
+        txt += `innerWidth : ${$('#div01-sub').innerWidth()}<br>`;
+        txt += `innerHeight : ${$('#div01-sub').innerHeight()}<br>`;
+        txt += `outerWidth : ${$('#div01-sub').outerWidth()}<br>`;
+        txt += `outerHeight : ${$('#div01-sub').outerHeight()}<br>`;
+        txt += `outerWidth(true) : ${$('#div01-sub').outerWidth(true)}<br>`;
+        txt += `outerHeight(true) : ${$('#div01-sub').outerHeight(true)}<br>`;
+
+        $('#div01-sub').html(txt);
+      });
+
+      $('#div01-btn05').on('click', function () {
+        let width = $('#div01-width').val();
+        let height = $('#div01-height').val();
+
+        $('#div01-sub').width(width);
+        $('#div01-sub').height(height);
+      });
+
+
+    });
+  </script>
+
+  <style>
+    #div01-sub {
+      height: 200px;
+      width: 500px;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid black;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+<div class="container p-4">
+  <div id="div01">
+    <button id="div01-btn01" class="btn btn-primary">width/height 사용</button>
+    <button id="div01-btn02" class="btn btn-success">innerWidth/innerHeight 사용</button>
+    <button id="div01-btn03" class="btn btn-info">outerWidth/outerHeight 사용</button>
+    <button id="div01-btn04" class="btn btn-warning">outerWidth(true)/outerHeight(true) 사용</button>
+    <button id="div01-btn05" class="btn btn-secondary">width/height 크기 설정</button>
+
+    <br><br>
+
+    <div id="div01-sub"></div>
+
+    <div class="row mt-3">
+      <div class="col p-3">
+        <input type="text" id="div01-width" class="form-control" placeholder="width 입력">
+      </div>
+      <div class="col p-3">
+        <input type="text" id="div01-height" class="form-control" placeholder="height 입력">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
