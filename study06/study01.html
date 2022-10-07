@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+  //  first() : 지정한 html 태그 중 첫 번째 태그를 선택
+  //    사용법 :
+      //    태그.first()
+      $('#div01 div').first().css({'background-color': 'yellow'});
+
+  //  last() : 지정한 html 태그 중 마지막 태그를 선택
+  //    사용법 :
+      //    태그.last()
+      $('#div02 div').last().css('background-color', 'yellow');
+
+  //  eq() : 지정한 html 태그 중 특정 태그를 선택 시 index 번호를 사용하여 선택, 시작 번호는 0  // 자식 태그와 상관없이 문서 전체에서 검색했을 때 순서대로 선택
+  //    사용법 :
+      //    태그.eq(index)
+      $('#div03 p').eq(3).css('background-color', 'yellow');
+
+  //  filter() : 지정한 html 태그 중 검색 기준을 만족하는 태그를 선택
+  //    사용법 :
+      //    태그.filter(검색기준)
+      $('#div04 p').filter('.intro').css('background-color', 'yellow');
+
+  //  not() : 지정한 html 태그 중 검색 기준을 만족하지 않는 태그를 선택
+  //    사용법 :
+      //    태그.not(검색기준)
+      $('#div05 p').not('.intro').css('background-color', 'yellow');
+
+    });
+  </script>
+  <style>
+    #div01 .box, #div02 .box {
+      border: 1px solid black;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container p-4">
+    <div id="div01">
+      <h3>first() 사용</h3>
+      <div class="box">
+        <p>div 태그의 자식 태그인 p 태그</p>
+        <p>div 태그의 자식 태그인 2번째 p 태그</p>
+      </div>
+      <div class="box">
+        <p>div 태그의 자식 태그인 p 태그</p>
+        <p>div 태그의 자식 태그인 2번째 p 태그</p>
+      </div>
+      <div class="box">
+        <p>div 태그의 자식 태그인 p 태그</p>
+        <p>div 태그의 자식 태그인 2번째 p 태그</p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div02">
+      <h3>last() 사용</h3>
+      <div class="box">
+        <p>div 태그의 자식 태그인 p 태그</p>
+        <p>div 태그의 자식 태그인 2번째 p 태그</p>
+      </div>
+      <div class="box">
+        <p>div 태그의 자식 태그인 p 태그</p>
+        <p>div 태그의 자식 태그인 2번째 p 태그</p>
+      </div>
+      <div class="box">
+        <p>div 태그의 자식 태그인 p 태그</p>
+        <p>div 태그의 자식 태그인 2번째 p 태그</p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div03">
+      <h3>eq() 사용</h3>
+      <p>eq() 선택할 p 태그 (0 index)</p>
+      <div style="border: 1px solid black; padding: 16px">
+        <p>eq() 선택할 p 태그 (1 index)</p>
+        <div style="border: 1px dashed black">
+          <p>eq() 선택할 p 태그 (2 index)</p>
+          <p>eq() 선택할 p 태그 (3 index)</p>
+        </div>
+        <p>eq() 선택할 p 태그 (4 index)</p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div04">
+      <h3>filter() 사용</h3>
+      <div>
+        <p>filter()로 검색할 p 태그 중 하나</p>
+        <p class="intro">filter()로 실제로 검색될 p 태그</p>
+        <p>중간에 있어도 선택 안됨</p>
+        <p class="intro">filter()로 선택될 p 태그 2번째꺼</p>
+        <p>이 태그는 선택 안됨</p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div05">
+      <h3>not() 사용</h3>
+      <div>
+        <p>not() 사용하여 선택할 첫 번째 태그</p>
+        <p class="intro">not()을 사용하여 제외할 태그</p>
+        <p>이것도 선택함</p>
+        <p class="intro">not()을 사용하여 제외할 태그</p>
+        <p>not()을 사용하여 선택할 마지막 태그</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
